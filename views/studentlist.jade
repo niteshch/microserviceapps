@@ -1,0 +1,76 @@
+extends layout
+
+block content
+    script(src="javascripts/global.js")
+    // Wrapper
+    #wrapper
+
+        // Student INFO
+        #studentInfo.span6.pull-right
+            h2 Student Info
+            p
+
+                strong UNI:
+                |  <span id='uni'></span>
+                br
+                strong Given Name:
+                |  <span id='fname'></span>
+                br
+                strong Family Name:
+                |  <span id='lname'></span>
+                br
+                strong Gender:
+                |  <span id='gender'></span>
+                br
+                strong Date of Birth:
+                |  <span id='dob'></span>
+                br
+                strong Email ID:
+                |  <span id='email'></span>
+                br
+                strong Home Number:
+                |  <span id='homenbr'></span>
+                br
+                strong Mobile Number:
+                |  <span id='mobilenbr'></span>
+                br
+                strong Current Address:
+                |  <span id='curntaddr'></span>
+                br
+                strong Permanent Address:
+                |  <span id='prmntaddr'></span>
+                br
+                strong Degree:
+                |  <span id='degree'></span>
+                br
+                strong Term:
+                |  <span id='term'></span>
+                br
+                strong School:
+                |  <span id='school'></span>
+                br
+                strong Major:
+                |  <span id='major'></span>
+                br
+                strong Minor:
+                |  <span id='minor'></span>
+                br
+                strong Expected Graduation Date:
+                |  <span id='graddt'></span>
+                br
+        // /Student INFO
+
+        // Student LIST
+        h2.span6 Student List
+        #studentList.span6
+            table.table.table-striped.table-bordered
+                thead
+                    tr
+                        th UNI
+                        th Name
+                        th Delete?
+                tbody
+        // /Student LIST
+
+    // /WRAPPER
+

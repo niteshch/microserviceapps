@@ -1,0 +1,27 @@
+extends layout
+
+
+block content
+    script(type='text/javascript')
+        $(document).ready(function(){
+        $('#inputDOB').datepicker({dateFormat: 'yy-mm-dd'});
+        $('#inputGradDt').datepicker({dateFormat: 'MM - yy'});});
+    h1= title
+    form.form-signin#formAddStudent(name="addstudent",method="post",action="/addstudent")
+        input.input-block-level#inputUNI(type="text", placeholder="UNI", name="uni")
+        input.input-block-level#inputFName(type="text", placeholder="Given Name", name="fname")
+        input.input-block-level#inputLName(type="text", placeholder="Family Name", name="lname")
+        input.input-block-level#inputGender(type="text", placeholder="Gender", name="gender")
+        input.input-block-level#inputDOB(type="text", placeholder="Date of Birth", name="dob")
+        input.input-block-level#inputEmail(type="text", placeholder="Email ID", name="email")
+        input.input-block-level#inputHomeNbr(type="text", placeholder="Home Number", name="homenbr")
+        input.input-block-level#inputMobileNbr(type="text", placeholder="Mobile Number", name="mobilenbr")
+        textarea.input-block-level#CurrentAddr(placeholder="Current Address" name="curntaddr")
+        textarea.input-block-level#PermanentAddr(placeholder="Permanent Address" name="prmntaddr")
+        input.input-block-level#inputDegree(type="text", placeholder="Degree", name="degree")
+        input.input-block-level#inputTerm(type="text", placeholder="Term", name="term")
+        input.input-block-level#inputSchool(type="text", placeholder="School", name="school")
+        input.input-block-level#inputMajor(type="text", placeholder="Major", name="major")
+        input.input-block-level#inputMinor(type="text", placeholder="Minor", name="minor")
+        input.input-block-level#inputGradDt(type="text", placeholder="Expected Graduation Date", name="graddt")
+        button.input-block-level#btnSubmit(type="submit") submit
