@@ -7,21 +7,71 @@ block content
         $('#inputDOB').datepicker({dateFormat: 'yy-mm-dd'});
         $('#inputGradDt').datepicker({dateFormat: 'MM - yy'});});
     h1= title
-    form.form-signin#formAddStudent(name="addstudent",method="post",action="/addstudent")
-        input.input-block-level#inputUNI(type="text", placeholder="UNI", name="uni")
-        input.input-block-level#inputFName(type="text", placeholder="Given Name", name="fname")
-        input.input-block-level#inputLName(type="text", placeholder="Family Name", name="lname")
-        input.input-block-level#inputGender(type="text", placeholder="Gender", name="gender")
-        input.input-block-level#inputDOB(type="text", placeholder="Date of Birth", name="dob")
-        input.input-block-level#inputEmail(type="text", placeholder="Email ID", name="email")
-        input.input-block-level#inputHomeNbr(type="text", placeholder="Home Number", name="homenbr")
-        input.input-block-level#inputMobileNbr(type="text", placeholder="Mobile Number", name="mobilenbr")
-        textarea.input-block-level#CurrentAddr(placeholder="Current Address" name="curntaddr")
-        textarea.input-block-level#PermanentAddr(placeholder="Permanent Address" name="prmntaddr")
-        input.input-block-level#inputDegree(type="text", placeholder="Degree", name="degree")
-        input.input-block-level#inputTerm(type="text", placeholder="Term", name="term")
-        input.input-block-level#inputSchool(type="text", placeholder="School", name="school")
-        input.input-block-level#inputMajor(type="text", placeholder="Major", name="major")
-        input.input-block-level#inputMinor(type="text", placeholder="Minor", name="minor")
-        input.input-block-level#inputGradDt(type="text", placeholder="Expected Graduation Date", name="graddt")
-        button.input-block-level#btnSubmit(type="submit") submit
+    form.form-horizontal#formAddStudent(name="addstudent",method="post",action="/students/addstudent")
+        div.form-group
+            label(for='uni',class='col-sm-2 control-label') UNI:
+            div.col-sm-10
+                input.form-control#inputUNI(type="text", placeholder="UNI", name="uni")
+        div.form-group
+            label(for='fname',class='col-sm-2 control-label') Given Name:
+            div.col-sm-10
+                input.form-control#inputFName(type="text", placeholder="Given Name", name="fname")
+        div.form-group
+            label(for='lname',class='col-sm-2 control-label') Family Name:
+            div.col-sm-10
+                input.form-control#inputLName(type="text", placeholder="Family Name", name="lname")
+        div.form-group
+            label(for='gender',class='col-sm-2 control-label') Gender:
+            div.col-sm-10
+                input.form-control#inputGender(type="text", placeholder="Gender", name="gender")
+         div.form-group
+            label(for='dob',class='col-sm-2 control-label') Date of Birth:
+            div.col-sm-10
+                input.form-control#inputDOB(type="text", placeholder="Date of Birth", name="dob")
+        div.form-group
+            label(for='email',class='col-sm-2 control-label') Email ID:
+            div.col-sm-10
+                input.form-control#inputEmail(type="text", placeholder="Email ID", name="email")
+        div.form-group
+            label(for='homenbr',class='col-sm-2 control-label') Home Number:
+            div.col-sm-10
+                input.form-control#inputHomeNbr(type="text", placeholder="Home Number", name="homenbr")
+        div.form-group
+            label(for='mobilenbr',class='col-sm-2 control-label') Mobile Number:
+            div.col-sm-10
+                input.form-control#inputMobileNbr(type="text", placeholder="Mobile Number", name="mobilenbr")
+        div.form-group
+            label(for='curntaddr',class='col-sm-2 control-label') Current Address:
+            div.col-sm-10
+                textarea.form-control#CurrentAddr(placeholder="Current Address" name="curntaddr")
+        div.form-group
+            label(for='prmntaddr',class='col-sm-2 control-label') Permanent Address:
+            div.col-sm-10
+                textarea.form-control#PermanentAddr(placeholder="Permanent Address" name="prmntaddr")
+        div.form-group
+            label(for='degree',class='col-sm-2 control-label') Degree:
+            div.col-sm-10
+                input.form-control#inputDegree(type="text", placeholder="Degree", name="degree")
+        div.form-group
+            label(for='term',class='col-sm-2 control-label') Term:
+            div.col-sm-10
+                input.form-control#inputTerm(type="text", placeholder="Term", name="term")
+        div.form-group
+            label(for='school',class='col-sm-2 control-label') School:
+            div.col-sm-10
+                input.form-control#inputSchool(type="text", placeholder="School", name="school")
+        div.form-group
+            label(for='major',class='col-sm-2 control-label') Major:
+            div.col-sm-10
+                input.form-control#inputMajor(type="text", placeholder="Major", name="major")
+        div.form-group
+            label(for='minor',class='col-sm-2 control-label') Minor:
+            div.col-sm-10
+                input.form-control#inputMinor(type="text", placeholder="Minor", name="minor")
+        div.form-group
+            label(for='graddt',class='col-sm-2 control-label') Expected Graduation Date:
+            div.col-sm-10
+                input.form-control#inputGradDt(type="text", placeholder="Expected Graduation Date", name="graddt")
+        div.form-group
+            div.col-sm-offset-2.col-sm-10
+                button.form-control#btnSubmit(type="submit") Add Student

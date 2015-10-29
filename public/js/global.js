@@ -9,6 +9,8 @@ $(document).ready(function() {
     populateTable();
     // UNI link click
     $('#studentList table tbody').on('click', 'td a.linkshowstudent', showStudentInfo);
+    $('#studentList table tbody').on('click', 'td a.linkdeletestudent', deleteStudent);
+
 
 });
 
@@ -29,7 +31,8 @@ function populateTable() {
             tableContent += '<tr>';
             tableContent += '<td><a href="#" class="linkshowstudent" rel="' + this.uni + '">' + this.uni + '</a></td>';
             tableContent += '<td>' + this.fname + ' '+ this.lname + '</td>';
-            tableContent += '<td><a href="#" class="linkdeletestudent" rel="' + this._id + '">Delete Student</a></td>';
+            tableContent += '<td><a href="/students/edit/'+this.uni+'" class="linkeditstudent" rel="' + this.uni + '">Edit Student</a></td>';
+            tableContent += '<td><a href="" class="linkdeletestudent" rel="' + this.uni + '">Delete Student</a></td>';
             tableContent += '</tr>';
         });
 
@@ -72,4 +75,43 @@ function showStudentInfo(event) {
     $('#major').text(thisStudentObject.major);
     $('#minor').text(thisStudentObject.minor);
     $('#graddt').text(thisStudentObject.graddt);
+};
+
+// Delete User
+function deleteStudent(event) {
+
+    event.preventDefault();
+
+    // Pop up a confirmation dialog
+    var confirmation = confirm('Are you sure you want to delete this student?');
+
+    // Check and make sure the user confirmed
+    if (confirmation === true) {
+
+        // If they did, do our delete
+        $.ajax({
+            type: 'DELETE',
+            url: '/students/deletestudent/' + $(this).attr('rel')
+        }).done(function( response ) {
+
+            // Check for a successful (blank) response
+            if (response.msg === '') {
+            }
+            else {
+                alert('Error: ' + response.msg);
+            }
+
+            // Update the table
+            populateTable();
+
+        });
+
+    }
+    else {
+
+        // If they said no to the confirm, do nothing
+        return false;
+
+    }
+
 };

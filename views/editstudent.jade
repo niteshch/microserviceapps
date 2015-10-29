@@ -1,0 +1,78 @@
+extends layout
+
+
+block content
+    script(type='text/javascript')
+        $(document).ready(function(){
+        $('#inputDOB').datepicker({dateFormat: 'yy-mm-dd'});
+        $('#inputGradDt').datepicker({dateFormat: 'MM - yy'});});
+    h1= title
+    form.form-horizontal#formUpdateStudent(name="updatestudent",method="POST",action="/students/edit/#{student.uni}")
+        div.form-group
+            label(for='uni',class='col-sm-2 control-label') UNI:
+            div.col-sm-10
+                input.form-control#inputUNI(type="text", placeholder="UNI", name="uni" value='#{student.uni}' readonly)
+        div.form-group
+            label(for='fname',class='col-sm-2 control-label') Given Name:
+            div.col-sm-10
+                input.form-control#inputFName(type="text", placeholder="Given Name", name="fname" value='#{student.fname}')
+        div.form-group
+            label(for='lname',class='col-sm-2 control-label') Family Name:
+            div.col-sm-10
+                input.form-control#inputLName(type="text", placeholder="Family Name", name="lname" value='#{student.lname}')
+        div.form-group
+            label(for='gender',class='col-sm-2 control-label') Gender:
+            div.col-sm-10
+                input.form-control#inputGender(type="text", placeholder="Gender", name="gender" value='#{student.gender}')
+         div.form-group
+            label(for='dob',class='col-sm-2 control-label') Date of Birth:
+            div.col-sm-10
+                input.form-control#inputDOB(type="text", placeholder="Date of Birth", name="dob" value='#{student.dob}')
+        div.form-group
+            label(for='email',class='col-sm-2 control-label') Email ID:
+            div.col-sm-10
+                input.form-control#inputEmail(type="text", placeholder="Email ID", name="email" value='#{student.email}')
+        div.form-group
+            label(for='homenbr',class='col-sm-2 control-label') Home Number:
+            div.col-sm-10
+                input.form-control#inputHomeNbr(type="text", placeholder="Home Number", name="homenbr" value='#{student.homenbr}')
+        div.form-group
+            label(for='mobilenbr',class='col-sm-2 control-label') Mobile Number:
+            div.col-sm-10
+                input.form-control#inputMobileNbr(type="text", placeholder="Mobile Number", name="mobilenbr" value='#{student.mobilenbr}')
+        div.form-group
+            label(for='curntaddr',class='col-sm-2 control-label') Current Address:
+            div.col-sm-10
+                textarea.form-control#CurrentAddr(placeholder="Current Address" name="curntaddr") #{student.curntaddr}
+        div.form-group
+            label(for='prmntaddr',class='col-sm-2 control-label') Permanent Address:
+            div.col-sm-10
+                textarea.form-control#PermanentAddr(placeholder="Permanent Address" name="prmntaddr") #{student.prmntaddr}
+        div.form-group
+            label(for='degree',class='col-sm-2 control-label') Degree:
+            div.col-sm-10
+                input.form-control#inputDegree(type="text", placeholder="Degree", name="degree" value='#{student.degree}' readonly)
+        div.form-group
+            label(for='term',class='col-sm-2 control-label') Term:
+            div.col-sm-10
+                input.form-control#inputTerm(type="text", placeholder="Term", name="term" value='#{student.term}' readonly)
+        div.form-group
+            label(for='school',class='col-sm-2 control-label') School:
+            div.col-sm-10
+                input.form-control#inputSchool(type="text", placeholder="School", name="school" value='#{student.school}' readonly)
+        div.form-group
+            label(for='major',class='col-sm-2 control-label') Major:
+            div.col-sm-10
+                input.form-control#inputMajor(type="text", placeholder="Major", name="major" value='#{student.major}' readonly)
+        div.form-group
+            label(for='minor',class='col-sm-2 control-label') Minor:
+            div.col-sm-10
+                input.form-control#inputMinor(type="text", placeholder="Minor", name="minor" value='#{student.minor}' readonly)
+        div.form-group
+            label(for='graddt',class='col-sm-2 control-label') Expected Graduation Date:
+            div.col-sm-10
+                input.form-control#inputGradDt(type="text", placeholder="Expected Graduation Date", name="graddt" value='#{student.graddt}' readonly)
+        input(type='hidden',value='PUT',name='_method')
+        div.form-group
+            div.col-sm-offset-2.col-sm-10
+                button.form-control#btnSubmit(type="submit") Update Student
