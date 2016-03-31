@@ -1,0 +1,860 @@
+[
+  {
+    "type": "post",
+    "url": "/api/admin/Courseschema",
+    "title": "For Data Model changes",
+    "version": "0.3.0",
+    "name": "PostDrop",
+    "group": "Administrator",
+    "permission": [
+      {
+        "name": "Administrator"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "300",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Administrator"
+  },
+  {
+    "type": "delete",
+    "url": "/api/deleteCourse/:callNo",
+    "title": "Delete a Course",
+    "version": "0.3.0",
+    "name": "DeleteCourse",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "callNo",
+            "description": "<p>Call number of the course</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursename",
+            "description": "<p>Name of Course</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecode",
+            "description": "<p>Course Code</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseurl",
+            "description": "<p>Course url</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesection",
+            "description": "<p>Course Section</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseinstructor",
+            "description": "<p>Name of Instructor</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseyear",
+            "description": "<p>Year</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesemester",
+            "description": "<p>Semester in which course is offered</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursemaxsize",
+            "description": "<p>Maximum number of students permitted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "courselastupdate",
+            "description": "<p>Last Update Timestamp</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CourseNotFound",
+            "description": "<p>The <code>callNo</code> of the Course was not found or not deleted.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 No Course\n{\n  \"error\": \"Course does not exist\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  },
+  {
+    "type": "delete",
+    "url": "/api/dropEnroll/:callNo",
+    "title": "Remove students enrolled from a course",
+    "version": "0.3.0",
+    "name": "DeleteEnroll",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "callNo",
+            "description": "<p>Call number of the course</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CourseNotFound",
+            "description": "<p>The <code>callNo</code> of the Course was not found.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 No Course\n{\n  \"error\": \"Course does not exist\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  },
+  {
+    "type": "delete",
+    "url": "/api/dropWaitlist/:callNo",
+    "title": "Drop students from waitlist",
+    "version": "0.3.0",
+    "name": "DeleteWaitlist",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "callNo",
+            "description": "<p>Call number of the course</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CourseNotFound",
+            "description": "<p>The <code>callNo</code> of the Course was not found.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 No Course\n{\n  \"error\": \"Course does not exist\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  },
+  {
+    "type": "get",
+    "url": "api/getCourses/:callNo",
+    "title": "Read data of a particular course",
+    "version": "0.3.0",
+    "name": "GetCourse",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "Administrator"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursename",
+            "description": "<p>Name of Course</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecode",
+            "description": "<p>Course Code</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseurl",
+            "description": "<p>Course url</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesection",
+            "description": "<p>Course Section</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseinstructor",
+            "description": "<p>Name of Instructor</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseyear",
+            "description": "<p>Year</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesemester",
+            "description": "<p>Semester in which course is offered</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursemaxsize",
+            "description": "<p>Maximum number of students permitted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecurrentenroll",
+            "description": "<p>Number of students currently enrolled</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String[]</p> ",
+            "optional": false,
+            "field": "courseenrolled",
+            "description": "<p>List of Students enrolled</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String[]</p> ",
+            "optional": false,
+            "field": "coursewaitlist",
+            "description": "<p>List of Students Waitlisted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "courselastupdate",
+            "description": "<p>Last Update Timestamp</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "lastupdated",
+            "description": "<p>Timestamp of Last Update</p> "
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "callNo",
+            "description": "<p>Call Number of the course</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CourseNotFound",
+            "description": "<p>The <code>callNo</code> of the Course was not found.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 Course does not exist\n{\n  \"error\": \"The called course does not exist in the database\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  },
+  {
+    "type": "get",
+    "url": "/api/getCourses",
+    "title": "Read all Courses",
+    "version": "0.3.0",
+    "name": "GetCourses",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursename",
+            "description": "<p>Name of Course</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecode",
+            "description": "<p>Course Code</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseurl",
+            "description": "<p>Course url</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesection",
+            "description": "<p>Course Section</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseinstructor",
+            "description": "<p>Name of Instructor</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseyear",
+            "description": "<p>Year</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesemester",
+            "description": "<p>Semester in which course is offered</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursemaxsize",
+            "description": "<p>Maximum number of students permitted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecurrentenroll",
+            "description": "<p>Number of students currently enrolled</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String[]</p> ",
+            "optional": false,
+            "field": "courseenrolled",
+            "description": "<p>List of Students enrolled</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String[]</p> ",
+            "optional": false,
+            "field": "coursewaitlist",
+            "description": "<p>List of Students Waitlisted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "courselastupdate",
+            "description": "<p>Last Update Timestamp</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 Courses Absent\n{\n  \"error\": \"There exist no courses\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  },
+  {
+    "type": "post",
+    "url": "/api/createCourse",
+    "title": "Create a new Course",
+    "version": "0.3.0",
+    "name": "PostCourse",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursename",
+            "description": "<p>Name of Course</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecode",
+            "description": "<p>Course Code</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseurl",
+            "description": "<p>Course url</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesection",
+            "description": "<p>Course Section</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseinstructor",
+            "description": "<p>Name of Instructor</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseyear",
+            "description": "<p>Year</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesemester",
+            "description": "<p>Semester in which course is offered</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursemaxsize",
+            "description": "<p>Maximum number of students permitted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "courselastupdate",
+            "description": "<p>Last Update Timestamp</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CourseNotFound",
+            "description": "<p>The <code>callNo</code> of the Course that could not be created.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 Course creation failure\n{\n  \"error\": \"Course could not be created\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  },
+  {
+    "type": "put",
+    "url": "/api/updateCourse/:callNo",
+    "title": "Change a Course",
+    "version": "0.3.0",
+    "name": "PutCourse",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "callNo",
+            "description": "<p>Call number of the course</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursename",
+            "description": "<p>Name of Course</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecode",
+            "description": "<p>Course Code</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseurl",
+            "description": "<p>Course url</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesection",
+            "description": "<p>Course Section</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseinstructor",
+            "description": "<p>Name of Instructor</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseyear",
+            "description": "<p>Year</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesemester",
+            "description": "<p>Semester in which course is offered</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursemaxsize",
+            "description": "<p>Maximum number of students permitted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "courselastupdate",
+            "description": "<p>Last Update Timestamp</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CourseNotFound",
+            "description": "<p>The <code>callNo</code> of the Course was not found.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 No Course\n{\n  \"error\": \"Course does not exist\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  },
+  {
+    "type": "put",
+    "url": "/api/enroll/:callNo/:uni",
+    "title": "Enroll a student in a course",
+    "version": "0.3.0",
+    "name": "PutEnroll",
+    "group": "Courses",
+    "permission": [
+      {
+        "name": "none"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "callNo",
+            "description": "<p>Call number of the course</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "uni",
+            "description": "<p>UNI of the student</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursename",
+            "description": "<p>Name of Course</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecode",
+            "description": "<p>Course Code</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseurl",
+            "description": "<p>Course url</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesection",
+            "description": "<p>Course Section</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseinstructor",
+            "description": "<p>Name of Instructor</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "courseyear",
+            "description": "<p>Year</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursesemester",
+            "description": "<p>Semester in which course is offered</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursemaxsize",
+            "description": "<p>Maximum number of students permitted</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "courselastupdate",
+            "description": "<p>Last Update Timestamp</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "coursecurrentenroll",
+            "description": "<p>Number of students currently enrolled</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String[]</p> ",
+            "optional": false,
+            "field": "courseenrolled",
+            "description": "<p>List of Students enrolled</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "<p>String[]</p> ",
+            "optional": false,
+            "field": "coursewaitlist",
+            "description": "<p>List of Students Waitlisted</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CourseNotFound",
+            "description": "<p>The <code>uni</code> of the student was not found.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 401 No Course\n{\n  \"error\": \"student could not be enrolled to the course\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/course.js",
+    "groupTitle": "Courses"
+  }
+]

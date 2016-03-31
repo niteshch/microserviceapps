@@ -1,0 +1,26 @@
+extends ../layout
+block content
+	h1.
+		#{title}
+	ul
+		-each course, i in courses
+			li
+				=course.coursename
+				=course.coursecode
+				=course.courseurl
+				=course._id
+				=course.coursesection
+				=course.courseinstructor
+				=course.courseyear
+				=course.coursesemester
+				=course.coursemaxsize
+				=course.coursecurrentenroll
+				=course.coursewaitlist
+				=course.courselastupdate
+				form(action='/courses/#{course._id}/edit', method='post',enctype='appilcation/x-www-form-urlencoded')
+				input(type='hidden',value='DELETE',name='_method')
+				button(type='submit').Delete
+				p
+					a(href='/courses/#{course._id}/edit') Edit
+				p
+					a(href='/courses/#{course._id}') Show

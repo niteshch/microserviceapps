@@ -1,0 +1,15 @@
+extends ../layout
+block content
+	h1.
+		courses ID #{course._id}
+	form(action='/courses/#{course._id}/edit', name = 'updatecourse', enctype='application/x-www-form-urlencoded')
+		p Course Name:
+			input#inputCoursename(type='text',value='#{course.coursename', name='coursename')
+		p Course Code:
+			input#inputCoursecode(type='text', value='#{course.coursecode}', name='coursecode')
+		p Course url:
+			input#inputCourseurl(type='text',value='#{course.courseurl}', name='courseurl')
+		p
+			input(type='hidden',value='PUT', name='_method')
+		p 
+			button#btnSubmit(type='submit').Update

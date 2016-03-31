@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddCourse(name="addcourse",method="post",action="/courses")
+		p Course Name:
+			input#inputCoursename(type="text", placeholde="ex. Misroservice apps & apis", name="coursename")
+		p Course Code:
+			input#inputCoursecode(type="text", placeholder="ex. E6998", name="coursecode")
+		p Course url:
+			input#inputCourseurl(type="text", placeholder="www.columbia.edu/microservice" name="courseurl")
+		p Course Section:
+			input#inputCourseurl(type="text", placeholder="A/B/C" name="coursesection")
+		p Course Instructor:
+			input#inputCourseurl(type="text", placeholder="Name of Professor" name="courseinstructor")	
+		p Year:
+			input#inputCourseurl(type="text", placeholder="2015/2016" name="courseyear")
+		p Semester:
+			input#inputCourseurl(type="text", placeholder="Fall/Summer" name="coursesemester")
+		p Max Strength:
+			input#inputCourseurl(type="text", placeholder="max 150" name="coursemaxsize")
+		p Current Batch Size:
+			input#inputCourseurl(type="text", placeholder="150-175" name="coursecurrentenroll")
+		p Waitlist:
+			input#inputCourseurl(type="text", placeholder="www.columbia.edu/microservice" name="coursewaitlist")
+		p Last Updated:
+			input#inputCourseurl(type="text", placeholder="www.columbia.edu/microservice" name="courselastupdate")
+		p
+			button#btnSubmit(type="submit") submit

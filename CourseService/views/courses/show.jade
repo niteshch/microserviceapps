@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+	h1.
+		Infophoto #{course._id}
+	table
+		thead
+			th course name
+			th course code
+			th course url
+		tbody
+			p Course Name : #{course.coursename}
+			p Course Code : #{course.coursecode}
+			p Course url : #{course.courseurl}
+
+	
