@@ -6,4 +6,4 @@ This was part of a course assignment of course Microservice Apps and APIs. It co
 - Course Microservice
 - Registration Microservice
 
-The project uses RabbitMQ for communication across services. This ensures eventual consistency across microservices.
+The project uses RabbitMQ for ensuring eventual consistency across microservices.
