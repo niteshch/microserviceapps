@@ -1,7 +1,10 @@
 {
-  "name": "test",
-  "version": "0.0.0",
+  "name": "StudentMicroservice",
+  "version": "0.0.1",
   "private": true,
+  "apidoc": {
+    "title": "Student Microservice API details"
+  },
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -16,6 +19,7 @@
     "mongodb": "~2.0.33",
     "monk": "~1.0.1",
     "method-override": "~2.3.5",
-    "mongoose": "4.2.3"
+    "mongoose": "~4.2.6",
+    "amqp": "~0.4.0"
   }
 }

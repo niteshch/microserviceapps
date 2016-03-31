@@ -5,9 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // New Code
+
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/student');
 
 var routes = require('./routes/index');
 var students = require('./routes/students');
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
-    req.db = db;
     next();
 });
 
@@ -55,6 +53,9 @@ if (app.get('env') === 'development') {
     });
   });
 }
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
 
 // production error handler
 // no stacktraces leaked to user
@@ -66,5 +67,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
+//app.set('port', process.env.PORT || 3000);
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
 module.exports = app;
