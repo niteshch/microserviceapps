@@ -10,13 +10,13 @@ Technologies Used
 - Jade for creating templates
 - Jquery for ajax calls
 - Bootstrap for responsive UI
-- MongoDB for storing student information
+- MongoDB for storing course information
 - Mongoose for enforcing schema constraints
 - RabbitMQ for ensuring eventual consistency across services
 
 How To Run
 ----------
-Please install RabbitMQ and MongoDB before starting the service. This service comes bundled with a startStudentService.bat which can be used to launch multiple instances of the same service on a Windows machine. Please refer the same for launching a single instance or multiple instances on different platform.
+Please install RabbitMQ and MongoDB before starting the service. Run server.js
 
 Remarks on the Code
 -------------------
