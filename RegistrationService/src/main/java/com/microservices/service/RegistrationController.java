@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservices.StudentRecord;
-import com.microservices.dao.Greeting;
 import com.microservices.dao.JDBCRecordDAO;
 import com.microservices.messaging.PublishChannel;
 
@@ -31,16 +30,6 @@ public class RegistrationController {
 	private final AtomicLong counter = new AtomicLong();
 	private final ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 	JDBCRecordDAO jdbcRecordDAO = (JDBCRecordDAO) context.getBean("jdbcRecordDAO");
-
-	@RequestMapping("/greeting")
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
-	}
-
-	@RequestMapping("/andGreet")
-	public Greeting andGreet(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template1, name));
-	}
 
 	@RequestMapping("/student/test")
 	public String test(@RequestParam(value = "name", defaultValue = "World") String name) {
